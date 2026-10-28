@@ -1,0 +1,4 @@
+.container {
+  border-right: 1px solid var(--mantine-color-gray-3);
+  min-height: 100%;
+}

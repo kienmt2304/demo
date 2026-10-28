@@ -1,0 +1,16 @@
+{
+  "name": "@demo/shared",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "peerDependencies": {
+    "react": ">=19",
+    "react-dom": ">=19",
+    "@mantine/core": "^9",
+    "@mantine/hooks": "^9",
+    "@mantine/notifications": "^9",
+    "@tabler/icons-react": "^3"
+  }
+}

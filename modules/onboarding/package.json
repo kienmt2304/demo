@@ -1,0 +1,17 @@
+{
+  "name": "@demo/onboarding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.tsx",
+  "exports": {".": "./src/index.tsx"},
+  "pkgDemo": {},
+  "keywords": [],
+  "peerDependencies": {
+    "react": ">=19",
+    "react-router": "^8",
+    "@react-router/dev": "^8"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

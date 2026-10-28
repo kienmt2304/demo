@@ -1,0 +1,72 @@
+.container {
+  border-bottom: 1px solid rgba(20, 20, 20, 0.2);
+  z-index: 100;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.search {
+  border: 1px solid rgba(20, 20, 20, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 1rem;
+  width: 15rem;
+  @media (prefers-color-scheme: dark) {
+    border: 1px solid rgba(240, 240, 240, 0.6);
+  }
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.rightnav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-xs);
+  width: 100%;
+  max-width: 320px;
+  padding-inline: var(--mantine-spacing-sm);
+  border-radius: var(--mantine-radius-md);
+  border: 1px solid var(--mantine-color-default-border);
+  background-color: var(--mantine-color-default);
+  color: var(--mantine-color-dimmed);
+  font-size: var(--mantine-font-size-sm);
+  transition: border-color 120ms ease;
+  width: 15rem;
+  padding: 0.25rem;
+
+  @mixin hover {
+    border-color: var(--mantine-primary-color-filled);
+  }
+}
+
+.label {
+  flex: 1;
+  text-align: left;
+}

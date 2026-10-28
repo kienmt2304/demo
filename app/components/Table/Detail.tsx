@@ -1,0 +1,18 @@
+import { Text } from "@mantine/core";
+
+export default function Detail({
+  label,
+  value,
+}: {
+  label: string;
+  value: string;
+}) {
+  return (
+    <div>
+      <Text size="xs" c="dimmed">
+        {label}
+      </Text>
+      <Text size="sm">{value}</Text>
+    </div>
+  );
+}
