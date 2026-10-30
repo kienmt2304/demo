@@ -1,9 +1,10 @@
-import { BrowserRouter, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
+import { lazy } from "react";
 
 /* import */
-import DemoIde from "@demo/ide";
-import DemoOnboarding from "@demo/onboarding";
-import DemoTable from "@demo/table";
+const DemoIde = lazy(() => import("@demo/ide"));
+const DemoOnboarding = lazy(() => import("@demo/onboarding"));
+const DemoTable = lazy(() => import("@demo/table"));
 
 export default function Modules() {
   return (

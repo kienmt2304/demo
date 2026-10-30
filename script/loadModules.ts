@@ -18,7 +18,7 @@ const IMPORT_PLACEHOLDER = "/* import */";
 const ROUTE_PLACEHOLDER = "{/* route modules */}";
 
 function toImport(name: string) {
-  return `import ${toPascalCase(name)} from "${name}";`;
+  return `const ${toPascalCase(name)} = lazy(() => import('${name}'));`;
 }
 
 const toUnscoped = (name: string) => name.replace(/^@[^/]+\//, "");

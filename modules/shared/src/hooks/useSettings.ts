@@ -6,8 +6,8 @@ import type {
   UseSettingsWithoutSelectorReturnType,
   UseSettingsWithSelectorReturnType,
 } from "../service/settings/types";
-import { useMantineColorScheme, type MantineRadius } from "@mantine/core";
-import { useCallback, useContext, useEffect, useMemo } from "react";
+import { useMantineColorScheme } from "@mantine/core";
+import { useCallback, useContext, useMemo } from "react";
 import { notifications } from "@mantine/notifications";
 import ThemeContext, {
   type CustomThemeProps,
@@ -64,40 +64,43 @@ export default function useSettings<T>(
     300,
   );
 
-  const updateSettings = useCallback((value: Partial<Settings>) => {
-    const {
-      colorScheme: newColorScheme,
-      primaryColor,
-      scale,
-      defaultRadius,
-      fontSmoothing,
-      respectReducedMotion,
-      autoContrast,
-      ...rest
-    } = value;
-    if (newColorScheme) {
-      setColorScheme(newColorScheme);
-    }
-    const propsToUpdate = compact({
-      scale,
-      defaultRadius,
-      primaryColor,
-      fontSmoothing,
-      respectReducedMotion,
-      autoContrast,
-    });
-    updateProps(propsToUpdate);
-    setStorageSettings((prev) => {
-      return {
-        ...prev,
-        ...rest,
-        ...propsToUpdate,
-      };
-    });
-    if (shouldNotify) {
-      announceSaved();
-    }
-  }, []);
+  const updateSettings = useCallback(
+    (value: Partial<Settings>) => {
+      const {
+        colorScheme: newColorScheme,
+        primaryColor,
+        scale,
+        defaultRadius,
+        fontSmoothing,
+        respectReducedMotion,
+        autoContrast,
+        ...rest
+      } = value;
+      if (newColorScheme) {
+        setColorScheme(newColorScheme);
+      }
+      const propsToUpdate = compact({
+        scale,
+        defaultRadius,
+        primaryColor,
+        fontSmoothing,
+        respectReducedMotion,
+        autoContrast,
+      });
+      updateProps(propsToUpdate);
+      setStorageSettings((prev) => {
+        return {
+          ...prev,
+          ...rest,
+          ...propsToUpdate,
+        };
+      });
+      if (shouldNotify) {
+        announceSaved();
+      }
+    },
+    [shouldNotify, announceSaved, updateProps, setColorScheme],
+  );
 
   const selected = useMemo<T | undefined>(() => {
     if (!selector) return undefined;
